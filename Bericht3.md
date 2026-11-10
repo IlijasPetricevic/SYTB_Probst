@@ -74,3 +74,23 @@ Schreibe ein Skript, das einen Dateinamen als erstes Argument übernimmt und ein
  
 Hinweis: Verwende command substitution und das Kommando date.
 has context menu
+
+**datedCopy.sh**
+```sh
+#!/bin/bash
+
+heute=$(date +%Y-%m-%d)
+
+datei=$1
+
+neuer_name="${heute}_${datei}"
+
+cp "$datei" "$neuer_name"
+```
+
+**In Terminal**
+```sh
+chmod +x datedCopy.sh
+./datedCopy.sh test.txt
+```
+Aus test.txt --> 2026-11-10_test.txt
